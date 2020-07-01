@@ -38,6 +38,7 @@ setup(name='great-talon',
       description=("Mailgun library "
                    "to extract message quotations and signatures."),
       long_description=open("README.rst").read(),
+      long_description_content_type="text/x-rst",
       author='Mailgun Inc. && entamburini',
       author_email='entamburini@uc.cl',
       url='https://github.com/entamburini/talon',

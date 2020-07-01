@@ -1,7 +1,7 @@
 Great-talon
-=====
+===========
 
-This is the Mailgun library to extract message quotations and signatures but updated because the team of Mailgun doesn't respond nothing :c. 
+This is the Mailgun library to extract message quotations and signatures but updated because the Mailgun team doesn't respond anything 😅. 
 
 Any help is welcome :).
 
