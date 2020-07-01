@@ -1,7 +1,9 @@
-talon
+Great-talon
 =====
 
-Mailgun library to extract message quotations and signatures.
+This is the Mailgun library to extract message quotations and signatures but updated because the team of Mailgun doesn't respond nothing :c. 
+
+Any help is welcome :).
 
 If you ever tried to parse message quotations or signatures you know that absence of any formatting standards in this area could make this task a nightmare. Hopefully this library will make your life much easier. The name of the project is inspired by TALON - multipurpose robot designed to perform missions ranging from reconnaissance to combat and operate in a number of hostile environments. That’s what a good quotations and signature parser should be like :smile:
 
