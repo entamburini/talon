@@ -23,11 +23,14 @@ log = logging.getLogger(__name__)
 
 
 RE_FWD = re.compile("^[-]+[ ]*Forwarded message[ ]*[-]+\s*$", re.I | re.M)
+RE_FWD = re.compile("^[-]+[ ]*Mensaje reenviado[ ]*[-]+\s*$", re.I | re.M)
 
 RE_ON_DATE_SMB_WROTE = re.compile(
     u'(-*[>]?[ ]?({0})[ ].*({1})(.*\n){{0,2}}.*({2}):?-*)'.format(
         # Beginning of the line
         u'|'.join((
+            # Spanish
+            'En', 'El',
             # English
             'On',
             # French
@@ -56,6 +59,8 @@ RE_ON_DATE_SMB_WROTE = re.compile(
         )),
         # Ending of the line
         u'|'.join((
+            # Spanish
+            'escribió', 'envió', 'escribio', 'envio'
             # English
             'wrote', 'sent',
             # French
@@ -79,12 +84,16 @@ RE_ON_DATE_WROTE_SMB = re.compile(
     u'(-*[>]?[ ]?({0})[ ].*(.*\n){{0,2}}.*({1})[ ]*.*:)'.format(
         # Beginning of the line
         u'|'.join((
+            # Spanish
+            'En',
         	'Op',
         	#German
         	'Am'
         )),
         # Ending of the line
         u'|'.join((
+            # Spanish
+            'escribió'
             # Dutch
             'schreef','verzond','geschreven',
             # German
@@ -131,6 +140,8 @@ RE_EMPTY_QUOTATION = re.compile(
 # With variations in other languages.
 RE_ORIGINAL_MESSAGE = re.compile(u'[\s]*[-]+[ ]*({})[ ]*[-]+'.format(
     u'|'.join((
+        # Spanish
+        'Mensaje Original',
         # English
         'Original Message', 'Reply Message',
         # German
@@ -144,16 +155,18 @@ RE_FROM_COLON_OR_DATE_COLON = re.compile(u'((_+\r?\n)?[\s]*:?[*]?({})[\s]?:([^\n
         # "From" in different languages.
         'From', 'Van', 'De', 'Von', 'Fra', u'Från',
         # "Date" in different languages.
-        'Date', '[S]ent', 'Datum', u'Envoyé', 'Skickat', 'Sendt', 'Gesendet',
+        'Date', '[S]ent', 'Datum', u'Envoyé', 'Skickat', 'Sendt', 'Gesendet', 'Enviado'
         # "Subject" in different languages.
-        'Subject', 'Betreff', 'Objet', 'Emne', u'Ämne',
+        'Subject', 'Betreff', 'Objet', 'Emne', u'Ämne', 'Asunto'
         # "To" in different languages.
-        'To', 'An', 'Til', u'À', 'Till'
+        'To', 'An', 'Til', u'À', 'Till', 'Para'
     ))), re.I | re.M)
 
 # ---- John Smith wrote ----
 RE_ANDROID_WROTE = re.compile(u'[\s]*[-]+.*({})[ ]*[-]+'.format(
     u'|'.join((
+        # Spanish
+        'escribió', 'escribio'
         # English
         'wrote',
     ))), re.I)
